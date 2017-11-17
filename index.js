@@ -1,5 +1,5 @@
-import * as fastifyPlugin from 'fastify-plugin';
-import * as swig from 'swig';
+const fastifyPlugin = require('fastify-plugin');
+const swig = require('swig');
 
 function fastifySwig(fastify, opts, next) {
     fastify.decorateReply('locals', {});
@@ -7,7 +7,7 @@ function fastifySwig(fastify, opts, next) {
 
     swig.setDefaults(opts.defaults);
 
-    function render(view, options?) {
+    function render(view, options) {
         let locals = Object.assign(options || {}, this.locals);
         const tpl = swig.compileFile(`${opts.views}/${view}.swig`);
         setContentTypeHeader(this);
@@ -22,4 +22,4 @@ function setContentTypeHeader(that) {
     }
 }
 
-export default fastifyPlugin(fastifySwig, '>=0.30.2');
+exports = module.exports = fastifyPlugin(fastifySwig, '>=0.30.2');
