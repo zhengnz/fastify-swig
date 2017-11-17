@@ -1,8 +1,9 @@
 {
   "name": "fastify-swig",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A plugin for fastify that adds support for the template engine swig.",
-  "main": "index.js",
+  "main": "build/index.js",
+  "typings": "types/fastify.d.ts",
   "repository": "https://github.com/zhengnz/fastify-swig",
   "author": "Norman",
   "license": "MIT",
